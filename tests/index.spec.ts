@@ -67,9 +67,10 @@ test("request pending deletion videos", async ({ page }) => {
   // Open each video page in new tab
   for (const videoUrl of videoUrls) {
     await page.evaluate((url) => window.open(url), videoUrl);
+    await page.waitForTimeout(1000);
   }
 
-  console.log("Closing browser in 10 seconds...");
-  await page.waitForTimeout(10000);
+  console.log("Closing browser in 30 seconds...");
+  await page.waitForTimeout(30000);
   console.log("===================================");
 });

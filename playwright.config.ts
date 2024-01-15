@@ -32,7 +32,7 @@ export default defineConfig({
     /* Whether to run the tests headless or not. */
     headless: false,
   },
-  timeout: 60000,
+  timeout: 60000 * 5,
 
   /* Configure projects for major browsers */
   projects: [
