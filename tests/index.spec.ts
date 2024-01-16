@@ -27,9 +27,7 @@ test("request pending deletion videos", async ({ page }) => {
     console.log("Scraping page:", page.url());
 
     // Wait for page to load
-    await page
-      .locator('button[class="search-button"]')
-      .waitFor({ state: "visible" });
+    await page.waitForSelector('button[class="search-button"]');
 
     const videoCards = await page.$$("div.card");
     for (const videoCard of videoCards) {
@@ -71,6 +69,6 @@ test("request pending deletion videos", async ({ page }) => {
   }
 
   console.log("Closing browser in 30 seconds...");
-  await page.waitForTimeout(30000);
+  await page.waitForTimeout(30000).catch(() => {});
   console.log("===================================");
 });
