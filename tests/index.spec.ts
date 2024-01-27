@@ -27,6 +27,9 @@ test("request pending deletion videos", async ({ page }) => {
     console.log("Scraping page:", page.url());
 
     // Wait for page to load
+    await page.evaluate(() => {
+      window.scrollTo(0, document.body.scrollHeight);
+    });
     await page.waitForSelector('button[class="search-button"]');
 
     const videoCards = await page.$$("div.card");
